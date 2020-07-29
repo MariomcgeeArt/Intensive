@@ -19,7 +19,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
+    path('', include('affirmation.urls')),
     path('admin/', admin.site.urls),
-    path('affirmation/', include('affirmation.urls')),
+  
 
 ]
