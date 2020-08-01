@@ -1,0 +1,12 @@
+{{data.affirmation}}
+
+<form action='{%url "affirmation_save"%}' method= "POST">
+    {%csrf_token%}
+
+    <input name="affirmation" id="affirmation" type='hidden' value="{{data.affirmation}}">
+    <button type="submit">Save</button>
+
+
+
+
+</form>
