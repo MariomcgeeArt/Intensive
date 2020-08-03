@@ -1,1 +1,25 @@
+
+{% extends 'index.html' %}
+{% block title %}
+ Daily Affirmation
+{% endblock %}
+
+{% block content %}
 <p>affirmation click button and home display page..... page</p>
+
+
+
+
+
+
+
+<a href="{% url 'affirmation-view' %}">Generate Affirmaiton</a>
+<br>
+
+<a href="{% url 'create_affirmation' %}">Create an Affirmation</a>
+<br>
+
+<a href="{% url 'affirmation_save' %}">Saved Affirmaitons</a>
+
+{%endblock%}
+

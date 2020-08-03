@@ -36,17 +36,27 @@ class AffirmationView(ListView):
 
 
 def AffirmationSave(request):
-    form = request.POST.get("affirmation")
-    model = Affirmation()
-    model.name= form
-    model.user = request.user
-    model.save()
+    if request.POST:
+            
+        form = request.POST.get("affirmation")
+        user = request.user
+        if user is not None:
+
+            model = Affirmation()
+            model.name= form
+            model.user = user
+            model.save()
+        else:
+            pass
+    else:
+        pass
     
-    
+        
     context={
 
         "data": Affirmation.objects.all()
     }
+    
 
     return render(request,"affirmation/affirmation_save.html",context)
 

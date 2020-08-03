@@ -1,3 +1,12 @@
+{% extends 'index.html' %}
+{% block title %}
+ Daily Affirmation
+{% endblock %}
+
+
+
+{%block content%}
+
 {{data.affirmation}}
 
 <form action='{%url "affirmation_save"%}' method= "POST">
@@ -10,3 +19,7 @@
 
 
 </form>
+
+{%endblock%}
+
+

@@ -1,5 +1,23 @@
-<form method="POST" action='{%url "affirmation_save"%}'>
+
+{% extends 'index.html' %}
+{% block title %}
+Create Affirmation
+{% endblock %}
+
+{% block content %}
+<h3>Create a New Affirmation</h3>
+	<br>
+
+<form method="POST" action='{%url "affirmation_save"%}' class="form-group">
     {% csrf_token %}
+    <div class="input-group mb-3">
+            <div class="input-group-prepend">
     <input type = 'text' name="affirmation" id="affirmation">
     <input type="submit" value="Save affirmation">
+    </div>
+</div>
   </form>
+
+  {% endblock %}
+
+
