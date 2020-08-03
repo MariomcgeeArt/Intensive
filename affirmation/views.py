@@ -11,6 +11,8 @@ import requests
 
 
 def index(request):
+   
+    print(request.user.username)
     return render(request,'affirmation/affirmation_home.html')
 
 
@@ -37,7 +39,9 @@ def AffirmationSave(request):
     form = request.POST.get("affirmation")
     model = Affirmation()
     model.name= form
+    model.user = request.user
     model.save()
+    
     
     context={
 
@@ -49,6 +53,7 @@ def AffirmationSave(request):
 
 
 class AffirmationCreate(CreateView):
+
   def get(self, request):
       
       context = {}
@@ -58,6 +63,7 @@ class AffirmationCreate(CreateView):
       content = request.post.get('affirmation')
       affriamtaion= Affirmation()
       affirmation.name= content
+      affirmaiton.user = request.user
       affirmaiton.save()
    
       return HttpResponseRedirect(reverse_lazy('affirmation_save', args=[affirmation.id]))
