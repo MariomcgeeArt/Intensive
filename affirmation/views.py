@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from .models import Affirmation
+from django.views.generic.edit import CreateView
+from .forms import AffirmationForm
 
 import requests
 
@@ -31,7 +33,7 @@ class AffirmationView(ListView):
         return render(request,"affirmation/affirmation_display.html",context)
 
 
-def affirmation_save(request):
+def AffirmationSave(request):
     form = request.POST.get("affirmation")
     model = Affirmation()
     model.name= form
@@ -44,6 +46,22 @@ def affirmation_save(request):
 
     return render(request,"affirmation/affirmation_save.html",context)
 
+
+
+class AffirmationCreate(CreateView):
+  def get(self, request):
+      
+      context = {}
+      return render(request, 'affirmation/create_affirmation.html', context)
+
+  def post(self, request):
+      content = request.post.get('affirmation')
+      affriamtaion= Affirmation()
+      affirmation.name= content
+      affirmaiton.save()
+   
+      return HttpResponseRedirect(reverse_lazy('affirmation_save', args=[affirmation.id]))
+     
         
 
 

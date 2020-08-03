@@ -1,0 +1,5 @@
+<form method="POST" action='{%url "affirmation_save"%}'>
+    {% csrf_token %}
+    <input type = 'text' name="affirmation" id="affirmation">
+    <input type="submit" value="Save affirmation">
+  </form>
