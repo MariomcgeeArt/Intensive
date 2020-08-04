@@ -8,6 +8,8 @@ class Affirmation(models.Model):
   
     user = models.ForeignKey(User, on_delete=models.PROTECT,
                               help_text="The user that posted this article.")
+
+    
   
 
 

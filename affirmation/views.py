@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic.list import ListView
 from .models import Affirmation
 from django.views.generic.edit import CreateView
@@ -50,7 +50,7 @@ def AffirmationSave(request):
             pass
     else:
         pass
-    
+
         
     context={
 
@@ -77,8 +77,22 @@ class AffirmationCreate(CreateView):
       affirmaiton.save()
    
       return HttpResponseRedirect(reverse_lazy('affirmation_save', args=[affirmation.id]))
+
+
      
         
+# def deleteAffirmation(request,pk):
+#     obj = Affirmation.objects.get(id=pk)
+
+#     context ={
+
+#         'item': obj
+
+
+#     }
+#     return render(request, 'affirmaiton/delete.html',context)
+ 
+
 
 
         

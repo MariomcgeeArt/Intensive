@@ -25,7 +25,7 @@ SECRET_KEY = 'a9uv%j-f8%mx%=8#g54*9^najsa*ke&18_q!ck=0^6(*!$s595'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'dailyaffirmation.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'dailyaffirmation.herokuapp.com','127.0.0.1']
 
 
 # Application definition
