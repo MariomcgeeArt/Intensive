@@ -9,7 +9,7 @@ Prerequisites
 Download Django and Python3
 Have a basic understnading of command line scripting
 in terminal run: pip3 install -r requirements.txt
-to run server : pyt5hon3 manage.py runserver 
+to run server : python3 manage.py runserver 
 
 
 or simple use:
