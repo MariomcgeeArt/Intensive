@@ -1,4 +1,8 @@
 
+
+
+
 django==2.2.7
 gunicorn
 whitenoise
+requests
