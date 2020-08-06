@@ -3,8 +3,11 @@ from django.views.generic.list import ListView
 from .models import Affirmation
 from django.views.generic.edit import CreateView
 from .forms import AffirmationForm
-
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 import requests
+from django.urls import reverse
+
 
 
 
@@ -12,7 +15,7 @@ import requests
 
 def index(request):
    
-    print(request.user.username)
+    print(request.user)
     return render(request,'affirmation/affirmation_home.html')
 
 
@@ -78,20 +81,26 @@ class AffirmationCreate(CreateView):
    
       return HttpResponseRedirect(reverse_lazy('affirmation_save', args=[affirmation.id]))
 
-
-     
-        
-# def deleteAffirmation(request,pk):
-#     obj = Affirmation.objects.get(id=pk)
-
-#     context ={
-
-#         'item': obj
+      
 
 
-#     }
-#     return render(request, 'affirmaiton/delete.html',context)
- 
+
+class deleteAffirmation(CreateView):
+    def get(self,request,pk):
+        return redirect('{% url "affirmation_save" %}')
+
+    
+
+    def post(self,request,pk):
+        obj = Affirmation.objects.get(id=pk)
+       
+        if request.method == 'POST':
+            obj.delete()
+            # return reverse(redirect('{% url "affirmation_save" %}')
+            return HttpResponseRedirect(reverse('affirmation_save'))
+
+    
+   
 
 
 

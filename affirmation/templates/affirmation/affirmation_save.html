@@ -7,6 +7,9 @@
 {%block content%}
 
 
+
+{%if user.is_authenticated %}
+
 <ul>
 {%for affirmation in data%}
 <li>
@@ -14,9 +17,10 @@
 
         {{affirmation.name}}
         <br>
-
-        <a class ='btn btn-sm btn-danger' href="{%url 'delete_affirmation' affirmaiton.id %}">Delete</a>
-
+<form action="{%url 'delete_affirmation' affirmation.id %}" method='POST'>
+        {%csrf_token%}
+       <button type="submit">Delete</button>>
+</form>
 
 
 
@@ -25,6 +29,9 @@
 
 {%endfor%}
 </ul>
+
+
+{%endif%}
 
 
 

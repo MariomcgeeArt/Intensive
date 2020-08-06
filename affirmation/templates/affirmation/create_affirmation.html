@@ -6,6 +6,9 @@ Create Affirmation
 
 {% block content %}
 
+
+{%if user.is_authenticated %}
+
 <h3>Create a New Affirmation</h3>
 	<br>
 
@@ -18,6 +21,9 @@ Create Affirmation
     </div>
 </div>
   </form>
+
+
+{%endif%}
 
 
   {% endblock %}

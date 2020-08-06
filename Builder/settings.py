@@ -131,5 +131,5 @@ STATICFILES_DIRS= [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-LOGIN_REDIRECT_URL = 'affirmation/'
+LOGIN_REDIRECT_URL = '/affirmation/'
 LOGOUT_REDIRECT_URL = ''
