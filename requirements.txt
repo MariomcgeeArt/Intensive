@@ -2,7 +2,7 @@
 
 
 
-django==2.2.7
+django==2.2.18
 gunicorn
 whitenoise
 requests
